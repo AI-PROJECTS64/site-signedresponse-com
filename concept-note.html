@@ -1,0 +1,360 @@
+<!-- concept-note.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SignedResponse.com — Concept Note</title>
+  <meta name="description" content="Concept Note — SignedResponse.com. A neutral, protocol-agnostic framing of “signed responses” as a trust primitive across identity, authorization and API interactions." />
+
+  <link rel="canonical" href="https://www.signedresponse.com/concept-note.html" />
+  <link rel="alternate" href="https://www.signedresponse.com/concept-note.html" hreflang="en" />
+  <link rel="alternate" href="https://www.signedresponse.com/concept-note.html" hreflang="x-default" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="SignedResponse.com — Concept Note" />
+  <meta property="og:description" content="A neutral framing of “signed responses” as a trust primitive: verify origin and integrity of authentication, authorisation and API responses before acting." />
+  <meta property="og:url" content="https://www.signedresponse.com/concept-note.html" />
+  <meta property="og:image" content="https://www.signedresponse.com/og.jpg" />
+  <meta property="og:image:alt" content="SignedResponse.com — Concept Note" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.signedresponse.com/og.jpg" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    :root{
+      --bg:#020815;
+      --card:#081120;
+      --muted:#8791b0;
+      --text:#e8eefc;
+      --accent:#7fd0ff;
+      --chip:#101b34;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width:1040px;
+      margin:0 auto;
+      padding:28px 20px 36px;
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--chip);
+      border:1px solid #1d2946;
+      border-radius:999px;
+      padding:6px 12px;
+      color:#c1ccec;
+      font-size:13px;
+    }
+    .backlink{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      border:1px solid #1d2946;
+      padding:24px 22px 22px;
+      box-shadow:var(--shadow);
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0 0 6px;
+      font-size:30px;
+      letter-spacing:.4px;
+    }
+    h2{
+      margin:22px 0 8px;
+      font-size:20px;
+    }
+    h3{
+      margin:16px 0 6px;
+      font-size:16px;
+    }
+    .muted{color:var(--muted);}
+    .section-tag{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+    .list{
+      display:grid;
+      gap:8px;
+      margin:8px 0;
+    }
+    .chip{
+      display:inline-block;
+      background:var(--chip);
+      border-radius:999px;
+      border:1px solid #1d2946;
+      padding:6px 10px;
+      font-size:13px;
+      color:#c1ccec;
+    }
+    .foot{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:18px;
+      opacity:.85;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:9px 15px;
+      border-radius:999px;
+      border:1px solid #21325b;
+      background:#122143;
+      color:#e8eefc;
+      font-size:14px;
+      cursor:pointer;
+      text-decoration:none;
+      margin-top:10px;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#020815;
+      border-color:transparent;
+    }
+    .refs a{word-break:break-word}
+    @media (max-width:860px){
+      h1{font-size:26px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="badge">Concept Note — SignedResponse.com</div>
+      <a class="backlink" href="/">&larr; Back to main page</a>
+    </div>
+
+    <!-- 0. INTRO -->
+    <section class="card">
+      <div class="section-tag">Concept Note</div>
+      <h1>SignedResponse.com</h1>
+      <p class="muted">
+        This Concept Note provides a <b>neutral, protocol-agnostic framing</b> of the expression
+        <b>“signed response”</b> as a trust primitive: a response that is <b>cryptographically signed</b> so that
+        a recipient can verify <b>origin</b>, <b>integrity</b> and basic <b>context</b> before acting.
+        The goal is category clarity across identity, authorisation and API interactions.
+      </p>
+      <p class="muted">
+        <b>Important:</b> this page does <b>not</b> provide security services, audits, certification, PKI,
+        penetration testing, or compliance assessment. It provides <b>no</b> legal, regulatory or security advice.
+        It is not an official portal of any standards body (including OASIS, OpenID Foundation, W3C or IETF),
+        and it does not imply endorsement by any organisation. All trademarks belong to their respective owners.
+      </p>
+      <p class="muted">
+        SignedResponse.com is presented as a <b>descriptive digital asset</b> that a legitimate acquirer could
+        steward as a taxonomy, reference hub, or governance vocabulary layer for “signed responses”.
+      </p>
+    </section>
+
+    <!-- 1. WHY THIS PRIMITIVE MATTERS -->
+    <section class="card">
+      <div class="section-tag">1. Why the primitive matters</div>
+      <h2>Trust at scale increasingly depends on short machine-readable responses</h2>
+      <p class="muted">
+        Modern systems route critical decisions through responses: authentication responses in SSO, authorisation responses
+        returned via front-channel flows, API replies carrying decisions, and machine outputs feeding automated workflows.
+        In these settings, an unsigned or weakly protected response becomes a high-leverage attack surface.
+      </p>
+      <div class="list">
+        <div class="chip"><b>Origin:</b> who produced this response, and is that issuer authentic?</div>
+        <div class="chip"><b>Integrity:</b> was the response altered in transit (injection, tampering, substitution)?</div>
+        <div class="chip"><b>Context:</b> is this response bound to the intended recipient, session, audience or request?</div>
+        <div class="chip"><b>Actionability:</b> can the recipient safely act on it with a clear verification rule?</div>
+      </div>
+      <p class="muted">
+        “Signed response” is a concise way to talk about these guarantees without locking the discussion to a single protocol.
+      </p>
+    </section>
+
+    <!-- 2. WHERE IT APPEARS TODAY -->
+    <section class="card">
+      <div class="section-tag">2. Where it appears today</div>
+      <h2>Cross-protocol reality</h2>
+      <p class="muted">
+        The mechanics differ by ecosystem, but the design intent is similar: the receiver verifies a signature before trusting the response.
+        The same framing can cover multiple worlds without claiming a single “official standard” for the term.
+      </p>
+
+      <h3>2.1 Identity and SSO</h3>
+      <div class="list">
+        <div class="chip">
+          In federated identity, responses delivered by an identity provider are commonly signed (or contain signed statements)
+          so a service provider can verify authenticity before granting access.
+        </div>
+        <div class="chip">
+          The practical risk is not theoretical: misconfiguration, missing verification, or incorrect signature handling is a known
+          weakness in real-world deployments.
+        </div>
+      </div>
+
+      <h3>2.2 Authorization flows</h3>
+      <div class="list">
+        <div class="chip">
+          In high-value authorization contexts, ecosystems have defined mechanisms where authorization responses can be packaged and
+          protected as signed structures, reducing exposure to front-channel manipulation.
+        </div>
+      </div>
+
+      <h3>2.3 APIs and automated decisioning</h3>
+      <div class="list">
+        <div class="chip">
+          API responses often carry decisions (routing, pricing, eligibility, compliance flags). A signed response framing helps
+          structure how verification, replay resistance and recipient binding are discussed at the architecture level.
+        </div>
+        <div class="chip">
+          In automated workflows and agentic systems, signed outputs can be treated as “verifiable responses” that preserve provenance
+          and reduce ambiguity about who said what, when, and under which constraints.
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TERMINOLOGY -->
+    <section class="card">
+      <div class="section-tag">3. Terminology</div>
+      <h2>Response vs. statement vs. payload</h2>
+      <p class="muted">
+        Different ecosystems use different nouns. A protocol-agnostic banner should remain descriptive:
+      </p>
+      <div class="list">
+        <div class="chip"><b>Response:</b> the top-level message returned to a relying party (often short-lived, action-triggering).</div>
+        <div class="chip"><b>Statement / assertion:</b> a signed claim set embedded in or carried by a response.</div>
+        <div class="chip"><b>Payload:</b> the structured content being signed (XML/JSON/JWT), independent of transport.</div>
+        <div class="chip"><b>Verification rule:</b> how a recipient decides which keys, issuers, audiences and validity windows are acceptable.</div>
+      </div>
+      <p class="muted">
+        This Concept Note intentionally avoids protocol-specific operational guidance. The focus is the governance vocabulary:
+        “a response that must be signed and verified before action”.
+      </p>
+    </section>
+
+    <!-- 4. DESIGN CONSTRAINTS (NON-OPERATIONAL) -->
+    <section class="card">
+      <div class="section-tag">4. Design constraints</div>
+      <h2>Verification principles (high-level)</h2>
+      <p class="muted">
+        A signed response framing is only meaningful if verification is unambiguous. At a high level, governance and architecture
+        discussions typically revolve around:
+      </p>
+      <div class="list">
+        <div class="chip"><b>Issuer identification:</b> accepted issuers and key material must be explicitly managed.</div>
+        <div class="chip"><b>Audience / recipient binding:</b> the response is intended for a specific relying party or client.</div>
+        <div class="chip"><b>Freshness:</b> validity windows and replay resistance are part of the trust envelope.</div>
+        <div class="chip"><b>Context binding:</b> linking a response to an initiating request reduces substitution risk.</div>
+        <div class="chip"><b>Failure behavior:</b> what happens when verification fails must be deterministic and safe.</div>
+      </div>
+      <p class="muted">
+        These points are presented as descriptive constraints, not as implementation instructions. The domain is positioned for
+        conceptual framing and governance language, not operational security guidance.
+      </p>
+    </section>
+
+    <!-- 5. WHY A NEUTRAL BANNER -->
+    <section class="card">
+      <div class="section-tag">5. Why a neutral banner matters</div>
+      <h2>Separating taxonomy from vendor positioning</h2>
+      <p class="muted">
+        “Signed response” intersects with multiple ecosystems: identity, open finance, API security, and automation. In such a landscape,
+        vendor pages tend to describe the concept through a single product lens. A neutral banner can provide:
+      </p>
+      <div class="list">
+        <div class="chip">A stable definition that remains usable across cycles of standards and products.</div>
+        <div class="chip">A curated map of how the term appears across protocols, without implying endorsement.</div>
+        <div class="chip">A governance vocabulary layer for procurement, assurance and architecture dialogue.</div>
+        <div class="chip">Clear guardrails: non-affiliation, no services, and descriptive-only posture.</div>
+      </div>
+      <p class="muted">
+        The domain name itself does not create authority. Authority depends on the legitimacy of any future steward and its governance safeguards.
+      </p>
+    </section>
+
+    <!-- 6. RELATION TO INTEGRITY STACK -->
+    <section class="card">
+      <div class="section-tag">6. Relation to broader integrity themes</div>
+      <h2>Message integrity sits on top of platform integrity</h2>
+      <p class="muted">
+        Signed responses protect the <b>message layer</b>. Many ecosystems also require trust in the <b>compute layer</b> that produces
+        those responses, especially when decisions are automated or high-value. A coherent integrity stack may include:
+      </p>
+      <div class="list">
+        <div class="chip"><b>Compute integrity:</b> the environment producing responses is running intended code on a trustworthy platform.</div>
+        <div class="chip"><b>Signed responses:</b> recipients verify origin and integrity of the response before action.</div>
+        <div class="chip"><b>Governance:</b> policies and assurance language define which proofs are acceptable and why.</div>
+      </div>
+    </section>
+
+    <!-- 7. ACQUISITION PROCESS -->
+    <section class="card">
+      <div class="section-tag">7. Acquisition process</div>
+      <h2>Focused on the domain name only</h2>
+      <p class="muted">
+        Unless explicitly agreed otherwise, any transaction covers <b>only the SignedResponse.com domain name</b>.
+        It does not include software, services, audits, certification, compliance work, hosting, or operational activity.
+      </p>
+      <p class="muted">
+        Initial contact for serious enquiries and potential offers:
+        <a href="mailto:contact@signedresponse.com">contact@signedresponse.com</a>.
+      </p>
+      <a class="btn primary" href="mailto:contact@signedresponse.com?subject=SignedResponse.com%20-%20Acquisition%20enquiry">
+        Contact for potential acquisition
+      </a>
+    </section>
+
+    <!-- 8. REFERENCES (LIGHT, SAFE) -->
+    <section class="card">
+      <div class="section-tag">References</div>
+      <h2>External sources</h2>
+      <p class="muted refs">
+        This page intentionally keeps references lightweight and non-exhaustive. Any cited materials remain the property of their respective organisations.
+      </p>
+      <div class="list">
+        <div class="chip">SignedResponse.com Acquisition Brief (EN) - 2025-11: <a href="/Acquisition%20brief%20signedresponse-EN-202511.pdf" target="_blank" rel="noopener">open PDF</a></div>
+        <div class="chip">SignedResponse.com Acquisition Brief (FR) - 2025-11: <a href="/Acquisition%20brief%20signedresponse-202511.pdf" target="_blank" rel="noopener">open PDF</a></div>
+      </div>
+      <p class="muted">
+        If a future steward maintains a public reference list, it should clearly label sources, dates and status (standard, guidance, commentary),
+        and avoid any design element that could imply affiliation or endorsement.
+      </p>
+    </section>
+
+    <p class="foot">
+      © SignedResponse.com - descriptive digital asset for the “signed response” category.
+      No affiliation with standards bodies, regulators, governments, international organisations or private companies.
+      Descriptive use only. No legal, regulatory, security, financial or technical advice. All trademarks belong to their respective owners. Contact:
+      <a href="mailto:contact@signedresponse.com">contact@signedresponse.com</a>
+    </p>
+  </div>
+</body>
+</html>
